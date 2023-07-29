@@ -1,0 +1,22 @@
+
+<h2 align="center">📌 Sobre</h2>
+<p align="center"> Estudos sobre outras linguagens na qual desejo aprimorar conhecimentos.
+</p>
+<p align="center">
+    <a href="https://github.com/kakanetwork/Projetos.py/stargazers"><img alt="GitHub stars" 
+    src="https://img.shields.io/github/stars/kakanetwork/Projetos.py?color=4d080e&style=flat-square"></a>
+    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/kakanetwork/Projetos.py?color=4d080e&style=flat-square">
+    <a href="https://github.com/kakanetwork/Projetos.py/pulls"><img alt="GitHub pull requests" 
+    src="https://img.shields.io/github/issues-pr/kakanetwork/Projetos.py?color=4d080e&style=flat-square"></a>
+<h2 align="center">📝 Notas</h2>
+<p align="center">
+    Este repositório é destinado para fins educacionais e profissionais. Os códigos aqui presentes podem ser utilizados por terceiros para estudo e aprendizado.
+</p>
+<h2 align="center">👀 Mais informações</h2>
+<p align="center">
+    Para mais informações sobre os projetos presentes neste repositório ou para sugerir alterações e correções, entre em contato comigo pelo meu perfil do GitHub ou pelo meu Instagram.
+</p>
+<div align="center">
+    <a href="https://github.com/kakanetwork"><img src="https://img.shields.io/badge/-GitHub-4d080e?style=for-the-badge&logo=github" alt="GitHub"></a>
+    <a href="https://www.instagram.com/kaka_0206/"><img src="https://img.shields.io/badge/-Instagram-4d080e?style=for-the-badge&logo=instagram&logoColor=ffffff" alt="Instagram"></a>
+</div>
