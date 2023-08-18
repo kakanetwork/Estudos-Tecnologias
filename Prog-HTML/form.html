@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"> 
+    <title>Servidor</title>
+</head>
+
+<body>
+    <!-- Realizando a abertura de um formulário em método GET -->
+    <form action="" method="GET">
+        
+        <!-- Input que aceita qualquer texto / placeholder para visualização opaca da categoria -->
+        <!-- required é para tornar o campo obrigatório -->
+        None: <input type="text" placeholder="nome" required=""><br><br>
+
+        <!-- Input do tipo date / apenas para datas -->
+        Data de nascimento: <input type="date" name="" required=""><br><br>
+
+        <!-- Input do tipo Texto readonly, ou seja não pode ser alterado o valor -->
+        Texto: <input type="text" value="Não mexa" readonly=""><br><br>
+
+        <!-- Input do tipo número -->
+        Numero <input type="number" name=""><br><br>
+
+        <!-- Input do tipo email, é obrigatório possuir a estrutura de um email -->
+        Email: <input type="email" name=""><br><br>
+
+        <!-- Input do tipo senha, fica escondido -->
+        Senha: <input type="password" name=""><br><br>
+
+        <!-- Input com várias opções para selecionar -->
+        Pais:
+        <select name="">
+            <option value="">Brasil</option>
+            <option value="">Canada</option>
+            <option value="">EUA</option>
+            <option value="">Argentina</option>
+        </select><br><br>
+
+        <!-- Input para marcar como uma checkbox -->
+        <input type="checkbox" name="" required="">Aceitar os termos<br><br>
+
+        <!-- Botão de envio do formulário-->
+        <button type="submit">Enviar formulário</button>
+    </form>
+</body>
+</html>
