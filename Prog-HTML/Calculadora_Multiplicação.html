@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<header>
+<script>
+    // criando função para ser chamada no botão 
+    function calcular(){
+        // definindo variável e chamando o valor pelo ID
+        let valor1 = document.getElementById("valor1").value;
+        let valor2 = document.getElementById("valor2").value;
+        // realizando multiplicação direto no console
+        console.log(valor1 * valor2);
+    }
+</script>
+</header>
+<body>
+    <!-- Pedindo os 2 valores e definindo ID -->
+    <input type="number" id="valor1" />
+    <input type="number" id="valor2" />
+    <input type="button" value="Calcular" onclick="calcular()"> 
+    <label id="resultado"></label>
+</body>
+</html>
