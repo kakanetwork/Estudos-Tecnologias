@@ -7,7 +7,7 @@
 
 <body>
     <!--  Abrindo tag PHP dentro do HTML  -->
-    <?php
+    <?php // a tag deve ser sempre aberta e fechada (mesmo em casas do arquivo PHP separado, é uma boa prática)
 
     // ECHO E DECLARAÇÃO DE VARIÁVEL
 
