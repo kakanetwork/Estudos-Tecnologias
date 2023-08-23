@@ -30,7 +30,7 @@ def Git_Push ():
     print('='*100)
     modo = ''
     while modo not in ['A', 'U', 'S', '?']:
-        modo = str(input('\nModos:\nA - Automatico\nU - Único\nS - Sair\n? - Ajuda\n\nQual você deseja? ').upper())
+        modo = str(input('\nModos:\nA - Automático\nU - Único\nS - Sair\n? - Ajuda\n\nQual você deseja? ').upper())
         if modo not in ['A', 'U', 'S', '?']:
             print('Tente Novamente... informe corretamente!')
     
@@ -56,7 +56,7 @@ def Git_Push ():
         print('\n'+'='*100)
 
     elif modo == '?':
-        print(f'\nExplicação das Variavéis:\n\nAutomático -> Será gerado um Commit a cada {tempo_seg}s até que você encerre o programa! (se desejar alterar os segundos, acesse a configuração)\n\
+        print(f'\nExplicação das Variáveis:\n\nAutomático -> Será gerado um Commit a cada {tempo_seg}s até que você encerre o programa! (se desejar alterar os segundos, acesse a configuração)\n\
 Único -> Será gerado um Commit Único e o Programa será encerrado!\n\nCommit_name -> O nome do seu commit, pode ser genérico (se necessário alteração, vá nas configurações)!\n\
 Branch_Origin -> O nome do seu branch default no Github (se necessário alteração, vá nas configurações)!\n')
         print('='*100)
@@ -103,7 +103,7 @@ opções_descritivas = {
     '5': 'Sair do Programa'
 }
 
-print('\nFerramentas Disponiveis:\n')
+print('\nFerramentas Disponíveis:\n')
 
 for key, value in opções_descritivas.items():
     print(f'{key}: {value}')
@@ -115,6 +115,6 @@ while ferramenta not in opções:
     if ferramenta not in opções:
         print('Tente Novamente... informe corretamente!')
 
-print(f'Você escolhou a ferramenta: {opções_descritivas[ferramenta]}\n')
+print(f'Você escolheu a ferramenta: {opções_descritivas[ferramenta]}\n')
 opções[ferramenta]()
 
