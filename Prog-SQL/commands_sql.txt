@@ -1,0 +1,25 @@
+SELECT Seleciona os dados do banco de dados
+AS Renomear uma coluna ou tabela
+FROM Especifique a tabela da qual estamos puxando
+WHERE Filtrar a consulta para corresponder a uma condição
+JOIN Combinar 2 linhas ou mais tabelas
+AND Combinar condições em uma consulta “E”
+OR Condição em uma consulta “OU”
+LIKE Procurar padrões em uma coluna
+IN Especifique vários valores ao usar WHERE
+1S NULL Retorna apenas linhas com um valor nulo
+LIMIT Retornar apenas das linhas retornadas
+CASE Valor de retorno em uma condição especificada
+CREATE crie TABLE, DATABASE, INDEX ou VIEW.
+DROP exclua TABLE, DATABASE, INDEX ou VIEW.
+UPDATE Incluir dados na tabela de atualização
+DELETE Excluir linhas de uma tabela
+ALTER TABLE Adicionar/Remover colunas da tabela
+GROUPBY Agrupar linhas que têm os mesmos valores
+ORDER BY Definir a ordem do resultado
+HAVING Igual a WHERE, mas usado para funções de agregação
+SUM Retorna soma da coluna
+AVG Retorna média da coluna
+MIN Retorna o valor mínimo da coluna
+MAX Retorna o valor máximo da coluna
+COUNT Contar o número de linhas
