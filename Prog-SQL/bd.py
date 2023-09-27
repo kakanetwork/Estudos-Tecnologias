@@ -1,4 +1,4 @@
-import sqlite3, os, random
+import sqlite3, os
 from faker import Faker
 
 fake = Faker('pt_BR')
@@ -7,7 +7,7 @@ dir_atual = os.path.dirname(os.path.abspath(__file__))
 dir_bd = os.path.join(dir_atual, 'bd01')
 
 # Cria o banco de dados
-conexao = sqlite3.connect(dir_bd)
+conexao = sqlite3.connect(dir_bd) 
 
 # aponta para o banco de dados criado
 cursor = conexao.cursor()
