@@ -15,5 +15,7 @@ def main(page: ft.Page):
 
     # caixa de texto input
     tarefa = ft.TextField(hint_text="O que deve ser feito?", width=300) 
+    page.scroll = 'auto' # a rolagem está habilitada e a barra de rolagem só é mostrada quando ocorre a rolagem.
+
     page.add(ft.Row([tarefa, ft.ElevatedButton("Adicionar", on_click=adiciona_tarefa)])) 
 ft.app(target=main)

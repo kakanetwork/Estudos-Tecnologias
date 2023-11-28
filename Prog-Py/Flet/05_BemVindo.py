@@ -14,6 +14,8 @@ def main(page: ft.Page):
         page.update()
         nome.focus()
 
+    page.scroll = 'adaptive' #  a rolagem está habilitada e a barra de rolagem é sempre mostrada ao executar o aplicativo como web ou desktop. igual ao always 
+
     page.add(
         nome,
         sobrenome,

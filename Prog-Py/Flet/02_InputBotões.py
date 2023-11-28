@@ -24,6 +24,8 @@ def main(page: ft.Page):
 
     # adiciona a caixa de pergunta(input) e o botão com uma função ao ser clicado (informa o texto "clicado")
     nome = ft.TextField(label="Digite seu nome", width=300) # dessa forma posso mandar apenas a variável para a linha
+    page.scroll = 'always' #  a rolagem está habilitada e a barra de rolagem é sempre mostrada.
+
     page.add(
         ft.Row(controls=[
             nome,
