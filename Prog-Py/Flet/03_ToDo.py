@@ -1,6 +1,6 @@
 import flet as ft
 
-def main(page):
+def main(page: ft.Page):
     def adiciona_tarefa(e):
         # adiciona uma checkbox com o valor informado na caixa
         page.add(ft.Checkbox(label=tarefa.value)) 

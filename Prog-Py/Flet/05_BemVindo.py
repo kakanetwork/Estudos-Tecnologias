@@ -1,6 +1,6 @@
 import flet as ft
 
-def main(page):
+def main(page: ft.Page):
 
     # o autofocus inicia o app com ele já "clicado"/aberto
     nome = ft.TextField(label="nome", autofocus=True) 
