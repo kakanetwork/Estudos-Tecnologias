@@ -45,6 +45,7 @@ def main(page: ft.Page):
     
     # onclick = leva para a função login()
     btn = ft.FilledButton(text="Clique aqui!", on_click=login)
+    page.theme_mode = ft.ThemeMode.DARK # altera o modo do tema para a´dark
 
     # adiciona e da update nos elementos
     page.add(
