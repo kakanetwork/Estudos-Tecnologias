@@ -4,7 +4,7 @@ def main(page: ft.Page):
 
     titulo = ft.Text(value="Formulário de Cadastro", size=20, weight="bold", text_align="center")
     nome = ft.TextField(label="Digite o seu Nome", 
-                        autofocus=True)             # autofocus, ele inicia a página com foco naquela entrada
+                        autofocus=True,)             # autofocus, ele inicia a página com foco naquela entrada
                         
     senha = ft.TextField(label="Digite sua senha", 
                          password=True,             # transforma o campo em oculto (para senhas)

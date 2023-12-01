@@ -15,6 +15,5 @@ def main(page: ft.Page):
         t.value = f"Step {i}"
         i += 1
         page.update()
-        time.sleep(0.2)
-        
+
 ft.app(target=main)

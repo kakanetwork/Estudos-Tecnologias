@@ -15,7 +15,7 @@ def main(page: ft.Page):
     
     page.add(gv)
 
-    for i in range(1000):
+    for i in range(5000):
         gv.controls.append(
             ft.Container(
                 ft.Text(f"Item {i}", size=20, color="#001199"), # color pode ser definido em hexa ou usar as cores pré-programadas
