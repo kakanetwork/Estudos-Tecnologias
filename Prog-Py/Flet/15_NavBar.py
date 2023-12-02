@@ -12,6 +12,11 @@ def main(page: ft.Page):
             ft.NavigationDestination(icon=ft.icons.HOME, label="Home"), # destinos/itens que terão na navbar, junto a seu icon e nome (pode deixar sem se quiser)
             ft.NavigationDestination(icon=ft.icons.PEOPLE, label="People"),
             ft.NavigationDestination(icon=ft.icons.SETTINGS, label="Settings"),
+            ft.NavigationDestination(
+                    icon=ft.icons.BOOKMARK_BORDER,
+                    selected_icon=ft.icons.BOOKMARK, # quando o botão for clicado, o icon altera para BOOKMARK
+                    label="Explore",
+                ),
         ]
     )
     pass
