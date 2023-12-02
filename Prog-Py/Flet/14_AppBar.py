@@ -1,5 +1,9 @@
 import flet as ft
 
+"""
+Appbar é uma barra (normalmente superior) de titulo e ações que podem ser realizadas para a página
+"""
+
 def main(page: ft.Page):
     page.title = "AppBar"
     page.theme_mode = ft.ThemeMode.DARK
