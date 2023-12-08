@@ -7,7 +7,7 @@ hora = time.strftime("%H:%M", tempo_atual)
 
 
 def main(page: ft.Page):
-    alerta = ft.AlertDialog(        # criar um alerta (modal)
+    alerta = ft.AlertDialog(        # criar um alerta (não possui modal, logo ele pode ser fechado, sem a necessidade de alguma confirmação/ação, apenas um clique fora)
         title=ft.Text("Aviso!"),    # titulo do alerta
         # content é o corpo do alerta, aqui eu introduzi a biblioteca Time para informar a data da manutenção que é a data/hora atual
         content=ft.Text(f"Olá Usuário, teremos uma manutenção programada para a data {data} às {hora}"),
