@@ -6,7 +6,7 @@
   
   <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=fe428e&style=for-the-badge"/>
 
-  <img src="http://img.shields.io/static/v1?label=DIVERSAS&message=?&color=fe428e&style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="http://img.shields.io/static/v1?label=DIVERSAS&message=?&color=fe428e&style=for-the-badge&logoColor=white"/>
 
    <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=fe428e&style=for-the-badge"/>
 
