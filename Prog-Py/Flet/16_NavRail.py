@@ -24,7 +24,7 @@ def main(page: ft.Page):
             # a diferença de Icon_content para Icon, é que Icon_content permite transformar o icon em um controle e ter mais estilização do mesmo.
             ft.NavigationRailDestination(icon_content=ft.Icon(ft.icons.BOOKMARK_BORDER), 
                                          selected_icon_content=ft.Icon(ft.icons.BOOKMARK), 
-                                         label="Salvos"),
+                                         label="Salvos", padding=ft.padding.symmetric(vertical=280)),
         ],
         
         on_change=lambda e: print("Selected destination:", # quando tiver clique, ele informara para qual destino foi (baseado em index, de 0 em diante)
