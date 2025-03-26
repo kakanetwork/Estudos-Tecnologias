@@ -1,2 +1,30 @@
 venv
 pycache
+
+# .NET
+bin/
+obj/
+# NuGet
+packages/
+# VS Configuration
+.vs/
+.vscode/
+# Windows Installer
+*.cab
+*.msi
+*.msm
+*.msp
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+# OS generated files
+Thumbs.db
+Desktop.ini
+# JetBrains Rider
+.idea/
+# Logs
+*.log
+# OS Files
+.DS_Store
