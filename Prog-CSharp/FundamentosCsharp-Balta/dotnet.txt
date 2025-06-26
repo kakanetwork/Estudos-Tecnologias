@@ -1,0 +1,663 @@
+# =========================================================================================
+
+# SECTION - Comandos CLI:
+
+    dotnet new console -> Console Application
+    dotnet new classlib -> Nova ClassLibrary (DLL)
+    dotnet new web -> ASP.NET Core
+    dotnet new mvc -> ASP.NET Core
+    dotnet new webapi -> ASP.NET Core
+    dotnet new mstest -> Microsoft Test
+
+    dotnet new console -o MeuApp -> -o cria uma pasta
+
+    dotnet restore -> baixar e instalar as dependências
+
+    dotnet clean -> limpa os caches (ideal antes do build)
+    dotnet build -> compila a aplicação
+    dotnet run -> executa o aplicativo (e builda se necessário)
+
+# =========================================================================================
+
+# SECTION - Variavéis e Constantes:
+
+    int idade;
+    int idade = 25;
+    var idade = 25;
+
+    const int IDADE_MINIMA;
+    const int IDADE_MINIMA = 25;
+
+# =========================================================================================
+
+# SECTION - Comentários:
+
+    Simples -> //
+    Múltiplos -> /* */
+
+# =========================================================================================
+
+# SECTION - Tipos
+
+    | Tipo             | .NET Type      | Tamanho      | Valor Mínimo                | Valor Máximo                 | Usabilidade/Características                                                                 |
+    |------------------|----------------|--------------|-----------------------------|------------------------------|--------------------------------------------------------------------------------------------|
+    | `bool`           | Boolean        | 1 byte       | false                       | true                         | Verdadeiro/Falso, usado para lógica booleana                                               |
+    | `byte`           | Byte           | 8 bits       | 0                           | 255                          | Números inteiros sem sinal                                                                 |
+    | `sbyte`          | SByte          | 8 bits       | -128                        | 127                          | Números inteiros com sinal                                                                 |
+    | `char`           | Char           | 16 bits      | '\u0000'                    | '\uffff'                     | Caracteres Unicode                                                                         |
+    | `short`          | Int16          | 16 bits      | -32.768                     | 32.767                       | Números inteiros curtos com sinal                                                          |
+    | `ushort`         | UInt16         | 16 bits      | 0                           | 65.535                       | Números inteiros curtos sem sinal                                                          |
+    | `int`            | Int32          | 32 bits      | -2.147.483.648              | 2.147.483.647                | Números inteiros padrão                                                                    |
+    | `uint`           | UInt32         | 32 bits      | 0                           | 4.294.967.295                | Números inteiros sem sinal                                                                 |
+    | `long`           | Int64          | 64 bits      | -9.223.372.036.854.775.808  | 9.223.372.036.854.775.807    | Números inteiros longos com sinal                                                          |
+    | `ulong`          | UInt64         | 64 bits      | 0                           | 18.446.744.073.709.551.615   | Números inteiros longos sem sinal                                                          |
+    | `float`          | Single         | 32 bits      | ~-3.4 × 10^38               | ~3.4 × 10^38                 | Ponto flutuante, precisão simples (7 dígitos)                                              |
+    | `double`         | Double         | 64 bits      | ~-1.7 × 10^308              | ~1.7 × 10^308                | Ponto flutuante, precisão dupla (15-16 dígitos)                                            |
+    | `decimal`        | Decimal        | 128 bits     | ~-7.9 × 10^28               | ~7.9 × 10^28                 | Alta precisão, usado para valores monetários (28-29 dígitos)                               |
+    | `string`         | String         | Depende      | -                           | -                            | Sequência de caracteres Unicode, imutável                                                  |
+    | `object`         | Object         | Depende      | -                           | -                            | Tipo base de todos os tipos em C#, pode armazenar qualquer tipo                            |
+    | `dynamic`        | Dynamic        | Depende      | -                           | -                            | Tipo resolvido em tempo de execução, flexível, menos seguro                                |
+    | `nint`           | nint           | Depende      | Depende da arquitetura      | Depende da arquitetura       | Inteiro nativo (tamanho do ponteiro, 32 ou 64 bits)                                        |
+    | `nuint`          | nuint          | Depende      | Depende da arquitetura      | Depende da arquitetura       | Inteiro nativo sem sinal (tamanho do ponteiro, 32 ou 64 bits)                              |
+
+    **Observações:**
+    - Tipos numéricos podem ser `signed` (com sinal) ou `unsigned` (sem sinal).
+    - `decimal` é preferido para cálculos financeiros.
+    - `float` e `double` são usados para cálculos científicos e gráficos.
+    - `string` é imutável, ou seja, não pode ser alterada após a criação.
+    - `object` pode armazenar qualquer tipo, mas requer conversão (casting) para uso específico.
+    - `dynamic` permite maior flexibilidade, mas perde checagem de tipo em tempo de compilação.
+    - `nint` e `nuint` são usados para interoperabilidade com código nativo e ponteiros.
+    - A função "MaxValue" e "MinValue" puxa do tipo as extremidades limites deles.
+
+# =========================================================================================
+
+# SECTION - Números Reais (Double, Decimal e Float)
+
+    Float -> Notação F
+    Double
+    Decimal -> Notação M
+
+    Exemplos:
+
+    float salario = 2.500f;
+    double salario = 2.500;
+    decimal salario = 2.500m;
+    var salario = 2.500m (ou f)
+
+# =========================================================================================
+
+# SECTION - Valores Padrão
+
+    int => 0
+    float => 0
+    decimal => 0
+    bool => false
+    char => '\0'
+    string => ""
+
+# =========================================================================================
+
+# SECTION - Char (Unicode), String (Cadeia de Unicodes) e Nullable
+
+    Char -> um único caractere, e deve usar aspas simples:
+
+    chat umaletra = 'c';
+    var umaletra = 'c';
+
+    String -> Vários caracteres, deve usar aspas duplas:
+
+    string frase = "teste";
+    string numero = "1930";
+
+    Nullable -> Por padrão apenas char e string tem null como valor inicial, o INT tem 0 como valor inicial
+    Para fazer outros tipos terem padrão nulo é necessário:
+
+    int? idade = null; -> usando ? pós-tipo
+    bool? valor = null;
+
+# =========================================================================================
+
+# SECTION - Conversão Explicita e Implicita
+
+    Implicita: No código você atribui o novo tipo posteriomente, só funciona com tipos compativeis.
+    Alguns tipos compativeis abaixo:
+
+        - sbyte => short, int, long, float, double, decimal
+        - byte => short, ushort, int, uint, long, ulong, float, double, decimal
+        - short => int, long, float, double, decimal
+        - ushot => int, uint, long, ulong, float, double, decimal
+        - int => long, float, double, decimal
+        - uint => long, ulong, float, double, decimal
+        - long => float, double, decimal
+        - ulong => float, double, decimal
+        - char => ushort, int, uint, long, ulong, float, double, decimal
+        - float => double
+
+        Exemplo de Conversão Implicita:
+
+        double idade = 19.5;
+        int outro = -32;
+        idade = outro;
+
+    Explicita: Quando os tipos não são compativeis, segue mesma regra anterior (não recomendavel):
+
+    int inteiro = 100;
+    uint inteiroSemSinal = (uint)inteiro; 
+
+    se int for negativo, vai gerar erro apenas na execução e não na compilação.
+
+# =========================================================================================
+
+# SECTION - Parse e Convert
+
+    Parse é um metódo presente em todo tipo primitivo, e é usado para converter um char ou string para
+    qualquer outro tipo, exemplo:
+
+        int inteiro = int.parse("100") => converte a string "100" em um int 100
+
+        se não for compativel, gera erro.
+
+    Convert é uma classe utilitária que permite converter valores entre tipos de forma mais flexível e segura que o Parse. Por exemplo:
+
+        int inteiro = Convert.ToInt32("100"); // converte string para int
+        double numero = Convert.ToDouble("3.14"); // converte string para double
+
+    A diferença principal é que o Convert trata valores nulos e inválidos de forma mais segura, retornando valores padrão ou lançando exceções específicas, enquanto o Parse lança exceção se o valor não for compatível.
+
+    Práticas de conversão de tipos em C#:
+
+    - Use conversão implícita quando possível, pois é segura e não perde dados.
+    - Use conversão explícita (cast) quando necessário, mas esteja atento a possíveis perdas de dados ou exceções.
+    - Use Parse quando tiver certeza que a string é válida e não é nula.
+    - Use Convert para conversões mais seguras, especialmente quando pode receber valores nulos ou de tipos variados.
+    - Para conversão segura de string para número, prefira TryParse:
+
+        int valor;
+        bool sucesso = int.TryParse("123", out valor); // sucesso = true, valor = 123
+
+    Assim, evita exceções e pode tratar erros de conversão de forma controlada.
+
+# =========================================================================================
+
+# SECTION - Operadores
+
+    Aritméticos:
+        Soma => +
+        Subtração => -
+        Multiplicação => *
+        Divisão => /
+
+    Atribuição:
+        x += 5
+        x -= 1
+        x *= 10
+        x /= 2
+        
+    Comparação:
+        Igual: ==
+        Diferente: !=
+        Maior que: >
+        Menor que: <
+        Maior ou Igual a: >=
+        Menor ou Igual que: <=
+
+    Lógicos:
+        And: &&
+        Or: ||
+        Not: ! 
+
+# =========================================================================================
+
+# SECTION - Estruturas Condicionais
+
+    if(condicao) {
+        # Várias Linhas
+    } else if (condicao) {
+        # Várias Linhas
+    } else if (condicao) {
+        # Várias Linhas
+    } else {
+        # Várias Linhas
+    }
+
+    if (condicao)
+        # Se for só uma linha, não precisa de 
+    else if (condicao)
+        # Apenas uma linha
+    else
+        # Apenas uma linha
+
+# =========================================================================================
+
+# SECTION - Estrutura Condicional - Switch
+
+    O `switch` é uma estrutura condicional usada para selecionar entre múltiplos caminhos com base no valor de uma expressão.
+
+    string nome = joao;
+    switch(nome)
+    {
+        case "joao": Console.WriteLine("É este!"); break;
+        case "andre": Console.WriteLine("Não é ele!"); break;
+        case "lucas": Console.WriteLine("Não é ele!"); break;
+        default: Console.WriteLine("É outro!"); break;
+    }
+
+    case seria o If
+    default seria o Else
+
+# =========================================================================================
+
+# SECTION - Laços de Repetição 
+
+    for (var i=0; i<=5; i++)
+        Console.WriteLine(i);
+
+    for (var i=0; i<=5; i++)
+    {
+        Console.WriteLine(i);
+        Console.WriteLine(i);
+    }
+
+    while (valor <=5)
+    {
+        Console.WriteLine(valor);
+        valor++;
+    }
+
+    # A diferença DoWhile x While, é que o DoWhile faz a condição após o Laços
+    # Já o While, faz a condição antes dos Laços
+
+    do {
+        Console.WriteLine(valor);
+        valor++;
+    } while (valor <= 5);
+
+# =========================================================================================
+
+# SECTION - Funções e Métodos
+
+    Métodos no C# possuem assinatura (Junção de Nome + Parametros), isso significa que:
+    Eu posso ter 2 métodos de mesmo nome, mas que retornam ou recebem Parametros diferentes.
+    Também não posso ter métodos dentro de métodos!
+
+    static void Main(strings[] args)
+    {
+        MeuMetodo("Olá Mundo!");
+    }
+
+    static void MeuMetodo(string parametro)
+    {
+        Console.WriteLine(parametro);
+    }
+
+    O "VOID" informa que não vou retornar nada pelo método.
+    Abaixo um exemplo que retorna algo:
+
+    static void Main(string[] args)
+    {
+        var nome = NovoNome("Kalvin", "Nascimento");
+        Console.WriteLine(nome);
+    }
+
+    static string NovoNome(string nome, string sobrenome)
+    {
+        return nome + " " + sobrenome;
+    }
+
+    Também tem os Parametros Opcionais, já atribuindo um valor ao parametro:
+
+    static string RetornaNome(
+        string nome, 
+        string sobrenome,
+        int idade = 34
+        )
+    {
+        return nome + " " + sobrenome + " Tem: " + idade.ToString();
+    }
+
+    Observação: os parametros opcionais sempre devem ser os últimos.
+
+# =========================================================================================
+
+# SECTION - Tipos de Valor, Tipos de Referência, Stack, Heap e Garbage Collector
+
+    ## Tipos de Valor (Value Types)
+    - Armazenam diretamente os dados.
+    - Exemplos: `string`, `int`, `float`, `double`, `bool`, `char`, `struct`, `enum`.
+    - São alocados na Stack (pilha).
+    - Quando atribuídos a uma nova variável, uma cópia do valor é feita.
+    - Alterações em uma cópia não afetam a outra.
+
+    ## Tipos de Referência (Reference Types)
+    - Armazenam uma referência (endereço) para os dados.
+    - Exemplos: `object`, `class`, `array`, `delegate`, `dynamic`.
+    - São alocados na Heap (amontoado).
+    - Quando atribuídos a uma nova variável, ambas apontam para o mesmo objeto na memória.
+    - Alterações em uma afetam todas as referências ao mesmo objeto.
+
+    ## Stack (Pilha)
+    - Memória de acesso rápido usada para armazenar tipos de valor e informações de execução de métodos.
+    - Gerenciada automaticamente, liberada ao final do escopo.
+
+    ## Heap (Amontoado)
+    - Memória usada para armazenar objetos (tipos de referência).
+    - Mais lenta que a Stack, pois requer gerenciamento de alocação e liberação.
+
+    ## Garbage Collector (GC)
+    - Mecanismo automático do .NET que libera memória ocupada por objetos que não estão mais sendo utilizados.
+    - Monitora a Heap e remove objetos inacessíveis, evitando vazamento de memória.
+
+    **Resumo:**
+    - Tipos de valor: armazenados na Stack, cópia independente.
+    - Tipos de referência: armazenados na Heap, referência compartilhada.
+    - Garbage Collector: limpa objetos não utilizados na Heap automaticamente.
+
+# =========================================================================================
+
+# SECTION - Structs
+
+    Uma struct (estrutura) em C# é um tipo de valor que permite agrupar dados relacionados sob um mesmo nome. 
+    Structs são úteis para representar pequenos conjuntos de dados que pertencem juntos, como um ponto em um plano (x, y) ou uma cor (r, g, b).
+
+    Características principais:
+    - São tipos de valor (alocados na stack).
+    - Não suportam herança, mas podem implementar interfaces.
+    - Podem conter campos, propriedades, métodos e construtores.
+    - Não podem ter um construtor sem parâmetros explícito (o compilador gera um padrão).
+    - São úteis para representar entidades leves.
+
+    Exemplo de declaração e uso de struct:
+
+    struct Ponto
+    {
+        public int X;
+        public int Y;
+
+        public Ponto(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public void Exibir()
+        {
+            Console.WriteLine($"Ponto: ({X}, {Y})");
+        }
+    }
+
+    Uso:
+    Ponto p = new Ponto(10, 20);
+    p.Exibir(); // Saída: Ponto: (10, 20)
+
+    Resumo:
+    - Use struct para pequenos conjuntos de dados imutáveis ou leves.
+    - Para entidades mais complexas ou que precisam de herança, use class.
+
+# =========================================================================================
+
+# SECTION - Enumeradores
+
+    Um enumerador (enum) em C# é um tipo especial que permite definir um conjunto de constantes nomeadas, 
+    facilitando a leitura e manutenção do código. Enums são úteis para representar conjuntos fixos de valores, 
+    como dias da semana, estados de um pedido, etc.
+
+    Sintaxe básica:
+
+    enum DiasDaSemana
+    {
+        Domingo,
+        Segunda,
+        Terca,
+        Quarta,
+        Quinta,
+        Sexta,
+        Sabado
+    }
+
+    Por padrão, o primeiro valor começa em 0 e os seguintes aumentam em 1. Você pode atribuir valores específicos:
+    enum StatusPedido
+    {
+        Pendente = 1,
+        Processando = 2,
+        Enviado = 3,
+        Entregue = 4,
+        Cancelado = 5
+    }
+
+    Uso:
+    DiasDaSemana hoje = DiasDaSemana.Segunda;
+    Console.WriteLine(hoje); // Saída: Segunda
+    Console.WriteLine((int)hoje); // Saída: 1
+
+    Resumo:
+    - Enums facilitam o uso de valores fixos e nomeados.
+    - Melhoram a legibilidade e evitam o uso de "números mágicos".
+    - São tipos de valor (alocados na stack).
+
+# =========================================================================================
+
+# SECTION - Strings
+
+    # Formas de Interpolação:
+
+    int preco = 100
+    var texto = $"O produto vale {preco}"
+    var texto = "O produto vale" + preco
+    var texto = string.Format("O produto vale {0}", preco)
+
+    # -----------------------------------------------------
+
+    # Quebrar linha:
+
+    var texto $@"O texto é muito grande,
+                então quebrei ele"
+    Observação: se usar o $@ para quebrar, ele não irá "escapar" caracteres de \n \r \t e etc.
+
+    # -----------------------------------------------------
+
+    # Comparação de Strings:
+
+    string texto = "Este texto é um teste";
+
+    Console.WriteLine(texto.contains("Teste")); -> Retorna Booleano, compara pedaços da string (substrings)
+    Console.WriteLine(texto.CompareTo("Teste")); -> Retorna Int (0 ou 1), compara a ordem alfabética da string (quem vem antes)
+    Console.WriteLine(texto.Equals("este")); -> Retorna Booleano, compara exatamente toda string
+    Console.WriteLine(texto.StartsWith("este")); -> Retorna Booleano, compara o inicio da string
+    Console.WriteLine(texto.EndsWith("teste")); -> Retorna Booleano, compara o final da string
+    Console.WriteLine(texto.IndexOf("texto")); -> Retorna Int, informa a posição/índice daquele item (deve ser o mesmo tipo sempre e retorna o primeiro apenas)
+    Console.WriteLine(texto.LastIndexOf("texto")); -> Retorna Int, informa a posição/índice daquele item (deve ser o mesmo tipo sempre e retorna o último apenas)
+
+    Todos possuem o parametro ("Teste", StringComparison.OrdinalIgnoreCase), que ignora o case-sensitive. (Exceto o CompareTo).
+
+    # -----------------------------------------------------
+
+    # Outros Métodos:
+
+    Console.WriteLine(texto.ToLower()); -> Retorna Minusculo.
+    Console.WriteLine(texto.ToUpper()); -> Retorna Maiusculo.
+    Console.WriteLine(texto.Insert(5, "AQUI")); -> Insere na string na posição 5, o texto "AQUI".
+    Console.WriteLine(texto.Remove(5, 4)); -> Remove da string do índice 5 até os próximos 4 caracteres.
+    Console.WriteLine(texto.Length); -> Quantidade de Caracteres que a String Possui.
+    Console.WriteLine(texto.Replace("Este", "Isto")); -> Troca "Este" por "Isto", e faz para todas as ocorrências na string.
+    Console.WriteLine(texto.Split(" ")); -> Retorna um array, onde cada item será a parte da string fatiada a cada espaço (conforme coloquei " ").
+    Console.WriteLine(texto.Trim()); -> Retira os espaços de uma string no inicio e no final.
+    Console.WriteLine(texto.Substring(0, 5)); -> Retorna da String, do indice 0 até 5 caracteres.
+
+    # -----------------------------------------------------
+
+    # Range Operator (C# 8.0+) - Fatiamento:
+
+    string s = "programador";
+    Console.WriteLine(s[0..5]); -> "progr", Do início até o 5º caractere (não inclui o 5)
+    Console.WriteLine(s[5..]); -> "amador", Do 5º até o fim
+    Console.WriteLine(s[^1]); -> "r", Último caractere
+    Console.WriteLine(s[..^1]); -> "programado", Todos menos o último
+
+    # -----------------------------------------------------
+
+    # StringBuilder:
+
+    Usar `+=` para concatenar strings cria várias cópias na memória, o que é ineficiente em 
+    operações repetidas ou com grandes volumes de texto (como leitura de arquivos linha a linha).
+
+    O `StringBuilder` resolve esse problema, permitindo construir strings de forma eficiente e 
+    sem criar cópias intermediárias. Após montar o texto, `.ToString()` para obter a string final.
+
+    Exemplo:
+
+    var texto = new StringBuilder();
+    texto.Append("linha 1"); -> Adiciona normal
+    texto.AppendLine("linha 2"); -> Adiciona e Quebra a linha
+    string resultado = texto.ToString();
+
+# =========================================================================================
+
+# SECTION - DateTime
+
+    O DateTime é um Struc, sintaxe:
+    var data = new DateTime(); -> O valor padrão é 1/1/0001 12:00:00AM
+    var data = DateTime.Now; -> Data Atual.
+    var data = DateTime(2020, 10, 12, 8, 12, 44) -> Cria um DateTime Ano/Mes/Dia/Hora/Minuto/Segundo.
+    Console.WriteLine(data.Year) -> Retorna 2020, do objeto DateTime.
+    Console.WriteLine(data.DayOfWeek) -> Retorna o dia da semana (Ex: Segunda), se explicitar para ser (int), retornara 2.
+    Console.WriteLine(DateTime.DaysInMonth(2020, 2)) -> No mês de Fevereiro de 2020, quantos dias esse mês tem.
+    var formatada = $"{data:dd/MM/yyyy hh:mm:ss ff z}" -> Retorne em String Formatada, ff é fração de segundos, z é timezone.
+
+    # -----------------------------------------------------
+
+    # Verificar se é fim de semana:
+
+    static bool DiaDaSemana(DayOfWeek hoje){
+        return hoje == DayOfWeek.Saturday || hoje == DayOfWeek.Sunday;
+    }
+
+    DiaDaSemana(DateTime.Now.DayOfWeek);
+    Irá retornar TRUE ou FALSE se for fim de semana!
+
+    # -----------------------------------------------------
+
+    # Forma correta de somar uma data com + dias, meses, anos ou horas:
+    data = data.AddDays(10) -> Soma 10 Dias
+    data = data.AddMonths(1) -> Soma 1 Mês 
+    data = data.AddYears(1) -> Soma 1 Ano
+    data = data.AddHours(1) -> Soma 1 Hora
+
+    var data = DateTime.Now;
+    if (data == DateTime.Now) -> Isso nunca vai ser True, pois eles consideram os horários com as frações de segundos.
+    if (data.Date == DateTime.Now.Date) -> Pode funcionar, irá só comparar a data em si.
+
+    # -----------------------------------------------------
+
+    # Para definir melhor a data de acordo com a localidade, utiliza o cultureinfo:
+    var pt = new CultureInfo("pt-BR");
+    var en = new CultureInfo("en-US");
+    Console.WriteLine(DateTime.Now.ToString("D", pt)) -> terça-feira, 23 de junho de 2025.
+
+    # -----------------------------------------------------
+
+    # TimeZones
+
+    var utcData = DateTime.UtcNow; -> Pega a data com UTC 0, data global.
+    Console.WriteLine(DateTime.Now); -> Data UTC 0.
+    Console.WriteLine(utcData.ToLocalTime()); -> Pega a data com o UTC 0 e adiciona o UTC do servidor de execução, se for Brasil é o -3.
+
+    Se o usuário estiver na Australia por exemplo, e o servidor nos EUA, podemos definir para Australia com a sintaxe abaixo:
+
+    var timeZoneAustralia = TimeZoneInfo.FindSystemTimeZoneById("New Zealand Standard Time"); -> Pega o TZ da Australia. (Muda se for Linux)
+    var horaAustralia = TimeZoneInfo.ConvertTimeFromUtc(utcData, timeZoneAustralia); -> Pega a data UTC 0, e converte para UTC +12 que é o da Australia.
+
+# =========================================================================================
+
+# SECTION - Moedas
+
+    O Tipo ideal é o Decimal:
+    decimal preco = 149.99m;
+
+    User o CultureInfo para apresentar o valor em formato pt-BR:
+    preco.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR")); -> o "C" informa que é Currency e já retorna: R$ 149,99
+    se utilizar o "P" serve para porcentagem.
+
+    Pode usar em Interpolação também:
+    Console.WriteLine($"O Valor é: {preco:C}");
+
+    # -----------------------------------------------------
+
+    # Matemática com Moedas
+
+    Classe Math do C# usada para tudo relacionado a Matemática, focando em moedas, temos:
+
+    Math.Round(preco); -> (R: 149) Retira as casas decimais.
+    Math.Floor(preco); -> (R: 150) Arredonda para Cima.
+    Math.Ceiling(preco); -> (R: 149) Arredonda para Baixo.
+
+# =========================================================================================
+
+# SECTION - Arrays
+
+    // Informar tipagem dos Arrays dessa forma
+    var arrayInt = new int[5]; // -> iniciando na posição 0.
+    var arrayStr = new string[5];
+    var arrayBool = new bool[5];
+
+    // Apenas mostrar o objeto, vai retornar o nome do objeto.
+    Console.WriteLine(arrayInt); // -> System.Int32[].
+    Console.WriteLine(arrayStr); // -> System.String[].
+    Console.WriteLine(arrayBool); // -> System.Boolean[].
+
+    // Para guardar dados
+    arrayInt[0] = 12; // -> na posição 0, adicionei o item 12.
+    arrayStr[3] = "teste"; // -> na posição 3, adicionado "teste".
+    arrayBool[2] = true; // -> na posição 2, adicionado True.
+
+    // Para mostrar os dados guardados
+    Console.WriteLine(arrayInt[0]); // -> 12.
+    Console.WriteLine(arrayStr[3]); // -> teste.
+    Console.WriteLine(arrayBool[2]); // -> True.
+
+    // arrayInt[12] = 1; // -> Gera erro, pois eu inicei o Array apenas com 5 posições e não 12
+
+    // Para guardar os dados já na declaração
+    var meuArray = new int[5] { 12, 23, 45, 21, 92 }; // -> Deve ser exatamente igual a quantidade de posições
+    Console.WriteLine(string.Join(", ", meuArray)); // -> 12, 23, 45, 21, 92
+    Console.WriteLine(meuArray[2]); // -> 45
+
+    // Lembrando que arrays são RT (Reference Type), ou seja:
+    // meuArray = arrayInt;
+    Console.WriteLine(meuArray[0]); // -> 12
+    arrayInt[0] = 329;
+    Console.WriteLine(meuArray[0]); // -> 329, ou seja mesmo alterando só o arrayInt, ele altera o meuArray por ser RT
+
+    // Para copiar e não se tornar um RT e sim uma Cópia de Valor, usa o CopyTo ou Array.Copy.
+
+    meuArray.CopyTo(arrayInt, 0); // Índice 0 indica que será copiado os valores de arrayInt a partir do índice 0.
+    Array.Copy(arrayInt, 2, meuArray, 0, 2); // Array Origem, Ponto Inicial de Cópia, Array Destino, Ponto Inicial de Cola, Quantidade de Itens a ser Colados.
+
+    // Percorrer o Array
+
+    for (var indice = 0; indice < meuArray.Length; indice++)
+    {
+        Console.WriteLine(meuArray[indice]);
+    }
+
+    // Percorrer o Array com FOREACH (Ideal)
+
+    foreach (var item in meuArray)
+    {
+        Console.WriteLine(item);
+    }
+
+# =========================================================================================
+
+# SECTION - Exceções
+    - 
+    - 
+    - 
+
+# =========================================================================================
+
+# SECTION - Outros
+
+    - Thread.sleep() -> Equivalente ao time.sleep sync.
+    - Task.Delay() -> Equivalente ao time.sleep async.
+    - var id = Guid.NewGuid() -> Gera um Id Global Único.
